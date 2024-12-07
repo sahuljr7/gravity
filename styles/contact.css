@@ -1,0 +1,161 @@
+.contact-section {
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.comet-trail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--primary-color) 50%,
+    transparent 100%);
+  opacity: 0.3;
+  animation: cometMove 2s ease-in-out infinite;
+}
+
+@keyframes cometMove {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.form-label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.form-group.focused .form-label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  background: var(--background-dark);
+  padding: 0 0.5rem;
+}
+
+.launch-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.launch-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.contact-info {
+  display: grid;
+  gap: 2rem;
+}
+
+.info-panel {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-panel i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.map-container {
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #0a0a2a;
+}
+
+.map-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+
+.map-marker.pulse::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
